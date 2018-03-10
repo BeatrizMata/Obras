@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Obras.Models.Empresa>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <i class="fa fa-road"> Contratistas</i>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-9">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <i class="fa fa-table"></i> Datos Contratistas
+
+            </div>
+            <div class="panel-body">
+                @(Html.Kendo().Grid<Obras.Models.Empresa>()
+                    .Name("Grid")
+                    .ToolBar(tools => { tools.Create(); })
+                    .Columns(columns =>
+                    {
+                        columns.Bound(p => p.IdEmpresa).Filterable(false).Visible(false);
+                        columns.Bound(p => p.RFC);
+                        columns.Bound(p => p.NumIMSS);
+                        columns.Bound(p => p.NumIMSS);
+                        columns.Bound(o => o.Estatus).EditorTemplateName("Estatus").Width(200);
+                        columns.Command(command => { command.Edit().HtmlAttributes(new { @class = "k-primary" }); command.Destroy().HtmlAttributes(new { @class = "btn-danger" }); }).Title("Opciones");
+                    })
+                    .Pageable()
+                    .Sortable()
+                    .Editable(editable => editable.Mode(GridEditMode.InLine))
+                    .Scrollable()
+                    .Filterable()
+
+                    .DataSource(dataSource => dataSource
+                    .Ajax()
+                    .Model(Model =>
+                    {
+                        Model.Id(p => p.Id);
+
+                    })
+                    .Update(update => update.Action("EditingInLine_Obra", "Obras"))
+                    .Create(update => update.Action("EditingInline_CreateObra", "Obras"))
+                    .Destroy(update => update.Action("EditingCatalgo_DestroyObra", "Obras"))
+                    .PageSize(20)
+                    .Read(read => read.Action("getObras", "Obras"))
+     )
+                )
+
+
+            </div>
+        </div>
+    </div>
+    </div>

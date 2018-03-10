@@ -217,10 +217,10 @@
     <Content Include="Scripts\metisMenu.min.js.map" />
     <Content Include="Scripts\metisMenu.js.map" />
     <Content Include="Views\Shared\EditorTemplates\Estatus.cshtml" />
+    <Content Include="Views\Empresas\getEmpresas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Empresas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
