@@ -21,10 +21,13 @@ namespace Obras.Models
         [Key]
         public int Id { get; set; }
         [MaxLength(100)]
+        [Display(Name ="Clave de Obra")]
         public string CveObra { get; set; }
         [MaxLength(250)]
+        [Display(Name ="Descripción")]
         public string Descripcion { get; set; }
         [MaxLength(250)]
+        [Display(Name ="Ubicación")]
         public string Ubicacion { get; set; }
         [MaxLength(250)]
         public string Convenio{ get; set; }
@@ -95,6 +98,7 @@ namespace Obras.Models
         [Display(Name="Representante Técnico")]
         public string Tecnico { get; set; }
         [MaxLength(250)]
+        [Display(Name ="Folio de Registro")]
         public string RegistroEdo { get; set; }
         [MaxLength(250)]
         [Display(Name ="Número de Seguro")]
@@ -109,7 +113,7 @@ namespace Obras.Models
         [MaxLength(100)]
         public string CMIC { get; set; }
         [MaxLength(100)]
-        [Display(Name ="Camara Nacional de empresas de consultoria")]
+        [Display(Name ="Camara Nacional de Empresas de consultoria")]
         public string CNEC { get; set; }
         [Display(Name ="Fecha de Registro")]
         public DateTime FechaRegistro { get; set; }
@@ -148,6 +152,7 @@ namespace Obras.Models
         [Required]
         public Empresa IdEmpresa { get; set; }
         [MaxLength(250)]
+        [Display(Name ="Descripción")]
         public string Descripcion { get; set; }
 
     }
@@ -157,6 +162,7 @@ namespace Obras.Models
         [Key]
         public int Id { get; set; }
         [MaxLength(250)]
+        [Display(Name ="Descripción")]
         public string Descripcion { get; set; }
 
     }

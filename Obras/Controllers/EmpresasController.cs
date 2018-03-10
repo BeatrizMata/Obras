@@ -16,7 +16,7 @@ namespace Obras.Controllers
         public ActionResult Index()
         {
 
-            var model = db.dbEmpresa.ToList();
+            var model = db.dbEmpresa;
             return View(model);
         }
         public ActionResult getEmpresas([DataSourceRequest] DataSourceRequest request)
