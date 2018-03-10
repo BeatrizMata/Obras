@@ -39,7 +39,7 @@ namespace Obras.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index","Account");
+            return RedirectToAction("login","Account");
         }
 
         private Usuarios getUser(string userName, string password)
@@ -55,6 +55,17 @@ namespace Obras.Controllers
                 return false;
             else
                 return true;
+        }
+
+        public ActionResult getMenu()
+        {
+            
+            if (User.Identity.IsAuthenticated)
+            {
+               return PartialView(db.dbUsuarios.Where(m => m.UserName == User.Identity.Name).FirstOrDefault());
+
+            }
+            return RedirectToAction("login");
         }
     }
 }

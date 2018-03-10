@@ -16,6 +16,12 @@ namespace Obras.Models
         Iniciado,
         Terminado
     }
+    public enum TipoEmpresa
+    {
+        Fisica,
+        Moral
+    }
+    
 [Table("Obra")]
     public class Obra{
         [Key]
@@ -120,6 +126,9 @@ namespace Obras.Models
         [Display(Name ="Estatus")]
         [Required]
         public StatusEmpresa Estatus { get; set; }
+        [Display(Name ="Tipo de Empresa")]
+        [Required]
+        public TipoEmpresa Tipo { get; set; }
 
     }
     [Table("Domicilio")]
