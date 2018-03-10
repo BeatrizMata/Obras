@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -82,25 +83,38 @@ namespace Obras.Models
     public class Empresa
     {
         [Key]
-        public int IdEmpresa { get; set; }
-        //public Usuarios IdUsuario { get; set; }
+        public int Id { get; set; }
+        [Required]
+        public Usuarios IdUsuario { get; set; }
         [MaxLength(12)]
         public string RFC { get; set; }
         [MaxLength(250)]
+        [Display(Name ="Representante Legal")]
         public string RepresLegal { get; set; }
         [MaxLength(250)]
+        [Display(Name="Representante Técnico")]
         public string Tecnico { get; set; }
         [MaxLength(250)]
         public string RegistroEdo { get; set; }
         [MaxLength(250)]
+        [Display(Name ="Número de Seguro")]
         public string NumIMSS { get; set; }
+        [Display(Name ="Capital Social")]
+        [DefaultValue(0)]
         public double CapitalSocial { get; set; }
+        [Display(Name ="Capital Contable")]
+        [DefaultValue(0)]
         public double CapitalContable { get; set; }
+        [Display(Name ="Camara Méxicana de la Industria de la Construcción")]
         [MaxLength(100)]
         public string CMIC { get; set; }
         [MaxLength(100)]
+        [Display(Name ="Camara Nacional de empresas de consultoria")]
         public string CNEC { get; set; }
+        [Display(Name ="Fecha de Registro")]
         public DateTime FechaRegistro { get; set; }
+        [Display(Name ="Estatus")]
+        [Required]
         public StatusEmpresa Estatus { get; set; }
 
     }
@@ -108,15 +122,19 @@ namespace Obras.Models
     public class Domicilio
     {
         [Key]
-        public int IdDom { get; set; }
-        //public Usuarios IdUsuario { get; set; }
+        public int Id { get; set; }
+        [Required]
+        public Usuarios IdUsuario { get; set; }
         [MaxLength(200)]
         public string Colonia { get; set; }
         [MaxLength(6)]
+        [Display(Name ="Código Postal")]
         public string CodigoP { get; set; }
         [MaxLength(250)]
+        [Display(Name ="Calle")]
         public string Calle { get; set; }
         [MaxLength(250)]
+        [Display(Name="Ciudad")]
         public string Ciudad { get; set; }
         [MaxLength(250)]
         public string Estado { get; set; }
@@ -126,9 +144,9 @@ namespace Obras.Models
     public class Contacto
     {
         [Key]
-        public int IdContacto { get; set; }
-        //public Usuarios IdUsuario { get; set; }
-        public TipoContacto TContacto { get; set; }
+        public int Id { get; set; }
+        [Required]
+        public Empresa IdEmpresa { get; set; }
         [MaxLength(250)]
         public string Descripcion { get; set; }
 
@@ -138,10 +156,19 @@ namespace Obras.Models
     {
         [Key]
         public int Id { get; set; }
-        public Empresa IdEmpresa { get; set; }
         [MaxLength(250)]
-        public string DescEspecialidad { get; set; }
+        public string Descripcion { get; set; }
 
+    }
+    [Table("EspecialidadEmpresa")]
+    public class EspecialidadEmpresa
+    {
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        public Empresa IdEmpresa { get; set; }
+        [Required]
+        public Especialidad IdEspecialidad { get; set; }
     }
 
 }

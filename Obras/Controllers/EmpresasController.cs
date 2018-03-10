@@ -24,7 +24,7 @@ namespace Obras.Controllers
             IQueryable<Empresa> Details = db.dbEmpresa;
             DataSourceResult result = Details.ToDataSourceResult(request, p => new Empresa
             {
-                IdEmpresa = p.IdEmpresa,
+                Id = p.Id,
                 //incluir el nombre de la tabla Usuarios
                 RegistroEdo = p.RegistroEdo,
                 RepresLegal = p.RepresLegal,
