@@ -27,12 +27,13 @@
         {
             get; set;
         }
+        public DbSet <EspecialidadEmpresa> dbEspecialidadEmpresa { get; set; }
 
-            // Agregue un DbSet para cada tipo de entidad que desee incluir en el modelo. Para obtener más información 
-            // sobre cómo configurar y usar un modelo Code First, vea http://go.microsoft.com/fwlink/?LinkId=390109.
+        // Agregue un DbSet para cada tipo de entidad que desee incluir en el modelo. Para obtener más información 
+        // sobre cómo configurar y usar un modelo Code First, vea http://go.microsoft.com/fwlink/?LinkId=390109.
 
-            // public virtual DbSet<MyEntity> MyEntities { get; set; }
-        }
+        // public virtual DbSet<MyEntity> MyEntities { get; set; }
+    }
 
     //public class MyEntity
     //{
