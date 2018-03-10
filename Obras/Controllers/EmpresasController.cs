@@ -17,7 +17,18 @@ namespace Obras.Controllers
         {
 
             var model = db.dbEmpresa;
+            IEnumerable<StatusViewModel> lista = Enum.GetValues(typeof(StatusEmpresa)).Cast<StatusEmpresa>().Select(t => new StatusViewModel
+            {
+                Id = ((int)t),
+                Descripcion = t.ToString()
+            });
+            ViewData["Status"] = lista;
             return View(model);
+        }
+        public class StatusViewModel
+        {
+            public int Id { get; set; }
+            public string Descripcion { get; set; }
         }
         public ActionResult getEmpresas([DataSourceRequest] DataSourceRequest request)
         {
@@ -25,12 +36,14 @@ namespace Obras.Controllers
             DataSourceResult result = Details.ToDataSourceResult(request, p => new Empresa
             {
                 Id = p.Id,
-                //incluir el nombre de la tabla Usuarios
+                IdUsuario=p.IdUsuario,
                 RegistroEdo = p.RegistroEdo,
                 RepresLegal = p.RepresLegal,
                 Tecnico = p.Tecnico,
                 RFC = p.RFC,
-                FechaRegistro = p.FechaRegistro
+                FechaRegistro = p.FechaRegistro,
+                Estatus=p.Estatus
+                
 
             });
             return Json(result, JsonRequestBehavior.AllowGet);

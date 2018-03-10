@@ -18,7 +18,6 @@
         <div class="panel panel-success">
             <div class="panel-heading">
                 <i class="fa fa-table"></i> Datos Contratistas
-
             </div>
             <div class="panel-body">
                 @(Html.Kendo().Grid<Obras.Models.Empresa>()
@@ -28,9 +27,11 @@
                     {
                         columns.Bound(p => p.Id).Filterable(false).Visible(false);
                         columns.Bound(p => p.RFC);
-                        columns.Bound(p => p.NumIMSS);
-                        columns.Bound(p => p.NumIMSS);
-                        columns.Bound(o => o.Estatus).EditorTemplateName("Estatus").Width(200);
+                        columns.Bound(p => p.RegistroEdo);
+                        columns.Bound(p => p.RepresLegal);
+                        columns.Bound(p => p.Tecnico);
+                        columns.Bound(p => p.FechaRegistro);
+                        columns.Bound(o => o.Estatus).EditorTemplateName("EstatusEmpresa").Width(200);
                         columns.Command(command => { command.Edit().HtmlAttributes(new { @class = "k-primary" }); command.Destroy().HtmlAttributes(new { @class = "btn-danger" }); }).Title("Opciones");
                     })
                     .Pageable()
@@ -46,14 +47,25 @@
                         Model.Id(p => p.Id);
 
                     })
-                    .Update(update => update.Action("EditingInLine_Obra", "Obras"))
-                    .Create(update => update.Action("EditingInline_CreateObra", "Obras"))
-                    .Destroy(update => update.Action("EditingCatalgo_DestroyObra", "Obras"))
+                    .Update(update => update.Action("EditingInLine_Empresa", "Empresas"))
+                    .Create(update => update.Action("EditingInline_CreateEmpresa", "Empresas"))
+                    .Destroy(update => update.Action("EditingCatalgo_DestroyEmpresa", "Empresas"))
                     .PageSize(20)
-                    .Read(read => read.Action("getObras", "Obras"))
+                    .Read(read => read.Action("getEmpresas", "Empresas"))
      )
                 )
 
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <i class="fa fa-bar-chart"></i> Información
+            </div>
+            <div class="panel-body">
 
             </div>
         </div>

@@ -1,0 +1,4 @@
+﻿@model Obras.Models.StatusEmpresa
+
+@(Html.Kendo().DropDownListFor(m => m).DataValueField("Id").DataTextField("Descripcion").BindTo((System.Collections.IEnumerable)ViewData["Status"]))
+
