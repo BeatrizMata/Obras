@@ -16,7 +16,7 @@ namespace Obras.Models
         Terminado
     }
 [Table("Obra")]
-    public class obra{
+    public class Obra{
         [Key]
         public int Id { get; set; }
         [MaxLength(100)]
