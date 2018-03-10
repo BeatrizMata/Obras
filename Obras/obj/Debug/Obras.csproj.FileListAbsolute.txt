@@ -49,3 +49,5 @@ c:\Users\beatr\OneDrive\Documentos\Visual Studio 2015\Projects\Obras\Obras\bin\z
 c:\Users\beatr\OneDrive\Documentos\Visual Studio 2015\Projects\Obras\Obras\obj\Debug\Obras.csprojResolveAssemblyReference.cache
 c:\Users\beatr\OneDrive\Documentos\Visual Studio 2015\Projects\Obras\Obras\obj\Debug\Obras.dll
 c:\Users\beatr\OneDrive\Documentos\Visual Studio 2015\Projects\Obras\Obras\obj\Debug\Obras.pdb
+C:\Users\beatr\OneDrive\Documentos\Visual Studio 2015\Projects\Obras\Obras\obj\Debug\Obras.Migrations.db_ve1.resources
+C:\Users\beatr\OneDrive\Documentos\Visual Studio 2015\Projects\Obras\Obras\obj\Debug\Obras.csproj.GenerateResource.Cache

@@ -23,6 +23,12 @@
         // sobre cómo configurar y usar un modelo Code First, vea http://go.microsoft.com/fwlink/?LinkId=390109.
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
+        public DbSet<Empresa> dbEmpresa { get; set; }
+
+        public DbSet<Domicilio> dbDomicilio { get; set; }
+        public DbSet<Contacto> dbContacto { get; set; }
+        public DbSet<Especialidad> dbEspecialidad { get; set; }
+
     }
 
     //public class MyEntity
