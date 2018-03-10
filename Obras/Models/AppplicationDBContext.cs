@@ -19,20 +19,12 @@
 
         public DbSet <Obra> dbObra { get; set; }
         public DbSet <Usuarios> dbUsuarios { get; set; }
-        public DbSet<Empresa> dbEmpresa { get; set; }
 
-        public DbSet<Domicilio> dbDomicilio { get; set; }
-        public DbSet<Contacto> dbContacto { get; set; }
-        public DbSet<Especialidad> dbEspecialidad
-        {
-            get; set;
-        }
+        // Agregue un DbSet para cada tipo de entidad que desee incluir en el modelo. Para obtener más información 
+        // sobre cómo configurar y usar un modelo Code First, vea http://go.microsoft.com/fwlink/?LinkId=390109.
 
-            // Agregue un DbSet para cada tipo de entidad que desee incluir en el modelo. Para obtener más información 
-            // sobre cómo configurar y usar un modelo Code First, vea http://go.microsoft.com/fwlink/?LinkId=390109.
-
-            // public virtual DbSet<MyEntity> MyEntities { get; set; }
-        }
+        // public virtual DbSet<MyEntity> MyEntities { get; set; }
+    }
 
     //public class MyEntity
     //{

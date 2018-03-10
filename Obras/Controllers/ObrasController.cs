@@ -10,7 +10,6 @@ using System.Web.Mvc;
 
 namespace Obras.Controllers
 {
-    [Authorize]
     public class ObrasController : Controller
     {
         // GET: Obras
