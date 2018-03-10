@@ -29,4 +29,38 @@ namespace Obras.Models
         public string Convenio{ get; set; }
         public  StatusObra Estatus { get; set; }
     }
+
+    public class Usuarios
+    {
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        [EmailAddress]
+        [StringLength(150)]
+        [Display(Name ="Correo Electrónico")]
+        public string UserName { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [StringLength(20, MinimumLength =6)]
+        public string Password { get; set; }
+        [Required]
+        [StringLength(150)]
+        public string Nombre { get; set; }
+        [StringLength(150)]
+        public string Apellidos { get; set; }
+
+        public bool Activo { get; set; }
+    }
+    //View Model para logueo
+    public class ViewLogin
+    {
+        [Required]
+        [EmailAddress]
+        [StringLength(150)]
+        public string UserName { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [StringLength(20, MinimumLength = 6)]
+        public string Password { get; set; }
+    }
 }

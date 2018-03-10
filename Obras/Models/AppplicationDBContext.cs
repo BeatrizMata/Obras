@@ -18,6 +18,7 @@
         }
 
         public DbSet <Obra> dbObra { get; set; }
+        public DbSet <Usuarios> dbUsuarios { get; set; }
 
         // Agregue un DbSet para cada tipo de entidad que desee incluir en el modelo. Para obtener más información 
         // sobre cómo configurar y usar un modelo Code First, vea http://go.microsoft.com/fwlink/?LinkId=390109.
