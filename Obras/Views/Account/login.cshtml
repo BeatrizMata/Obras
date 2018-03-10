@@ -1,4 +1,4 @@
-﻿
+﻿@model Obras.Models.ViewLogin
 @{
     ViewBag.Title = "login";
     Layout = null;
@@ -33,28 +33,31 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id="FormLogin"}))
+                        {
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    @(Html.Kendo().TextBoxFor(m => m.UserName).HtmlAttributes(new { placeholder = "E-mail", required = "required", type = "email", data_email_msg = "Correo no valido", @class="form-control" }))
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    @(Html.Kendo().TextBoxFor(m => m.Password).HtmlAttributes(new { placeholder = "Contraseña", required = "required", type = "password",  @class = "form-control"}))
+                                    
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
-                                </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                
+                                @(Html.Kendo().Button().Name("LogIn").Content("Entrar"))
                             </fieldset>
-                        </form>
+                        }
+                            
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $("form").submit(function (event) {
+            var validator = $("#FormLogin").kendoValidator().data("kendoValidator");
+        }
+    </script>
 
     <!-- Core Scripts - Include with every page -->
     <script src="@Url.Content("~/Scripts/jquery-1.10.2.js")"></script>
