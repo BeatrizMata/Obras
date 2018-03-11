@@ -100,3 +100,8 @@ C:\Users\omar_\Source\Repos\Obras\Obras\bin\zh-CN\Kendo.Mvc.resources.dll
 C:\Users\omar_\Source\Repos\Obras\Obras\obj\Debug\Obras.csprojResolveAssemblyReference.cache
 C:\Users\omar_\Source\Repos\Obras\Obras\obj\Debug\Obras.dll
 C:\Users\omar_\Source\Repos\Obras\Obras\obj\Debug\Obras.pdb
+C:\Users\omar_\Source\Repos\Obras\Obras\bin\LinqToExcel.dll
+C:\Users\omar_\Source\Repos\Obras\Obras\bin\Remotion.Data.Linq.dll
+C:\Users\omar_\Source\Repos\Obras\Obras\bin\Remotion.dll
+C:\Users\omar_\Source\Repos\Obras\Obras\bin\Remotion.Interfaces.dll
+C:\Users\omar_\Source\Repos\Obras\Obras\bin\LinqToExcel.xml

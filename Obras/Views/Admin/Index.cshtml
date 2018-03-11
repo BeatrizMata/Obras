@@ -1,0 +1,53 @@
+﻿
+@(Html.Kendo().ToolBar().Name("Opciones").Items(items =>
+{
+    items.Add().Type(CommandType.SplitButton).Text("Usuarios y Roles").Click("Opcion").ImageUrl(Url.Content("~/Content/images/users.png")).MenuButtons(menuButons =>
+    {
+        menuButons.Add().Text("Usuarios").Id("Usuarios").ImageUrl(Url.Content("~/Content/images/users.png"));
+        menuButons.Add().Text("Roles").Id("Roles").ImageUrl(Url.Content("~/Content/images/gear.png"));
+    });
+    items.Add().Type(CommandType.SplitButton).Text("Empresas").Click("Opcion").ImageUrl(Url.Content("~/Content/images/factory.png")).MenuButtons(menuBut =>
+    {
+        menuBut.Add().Text("Cargar Desde Excel").Id("EmpresasExcel").ImageUrl(Url.Content("~/Content/images/647702-excel-128.png"));
+    });
+    items.Add().Type(CommandType.SplitButton).Text("Obras").Click("Opcion").ImageUrl(Url.Content("~/Content/images/factory.png")).MenuButtons(menuBut =>
+    {
+        menuBut.Add().Text("Cargar Desde Excel").Id("ObrasExcel").ImageUrl(Url.Content("~/Content/images/647702-excel-128.png"));
+    });
+}))
+
+<div class="row">
+    <div class="col-lg-12" >
+        <div class="container" id="Carga" style="padding-top:10px;">
+
+        </div>
+    </div>
+</div>
+<script>
+    function Opcion(e) {
+        var id = 0;
+        
+        switch (e.id) {
+            case "Usuarios":
+                id = "Usuarios";
+                break;
+            case "Roles":
+                id = "Roles";
+                break;
+            case "EmpresasExcel":
+                id = "EmpresasExcel";
+                break;
+
+            
+            default:
+                
+        }
+            $.ajax({
+                url: "/Admin/"+id+"/",
+                method: 'GET',
+                success: function (result) {
+                    $('#Carga').html(result);
+                }
+            });
+    }
+</script>

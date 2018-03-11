@@ -1,0 +1,16 @@
+﻿@{ 
+    Layout = null;
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <i class="fa fa-upload"></i> Cargar Archivos
+    </div>
+    <div class="panel-body">
+        <form method="post">
+            @Html.Kendo().Upload().Multiple(false).Name("files")
+            <button type="submit" class="k-button k-primary">Cargar</button>
+
+        </form>
+    </div>
+
+</div>
