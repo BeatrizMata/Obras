@@ -2,6 +2,39 @@
 @{
     ViewBag.Title = "Index";
 }
+<script type="text/javascript">
+
+    function verDetalle(e) {
+        e.preventDefault();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var myWindow = $("#Details");
+        myWindow.kendoWindow({
+            modal: true,
+            Draggable: true,
+            Resizable: true,
+            visible: false,
+            Maximize: true,
+            actions: [
+                "pin",
+                "Minimize",
+                "Maximize",
+                "Close"
+            ]
+        }).data("kendoWindow").center().open()
+        {
+            $.ajax({
+                data: { id: dataItem.Id },
+                url: "/Empresas/Detalles",
+                method: 'GET',
+                success: function (result) {
+                    $("#Details").html(result);
+                }
+            })
+        }
+
+    }
+</script>
+
 <div class="row">
     <div class="col-lg-12">
         <ol class="breadcrumb">
@@ -32,7 +65,11 @@
                         columns.Bound(p => p.Tecnico);
                         columns.Bound(p => p.FechaRegistro);
                         columns.Bound(o => o.Estatus).EditorTemplateName("EstatusEmpresa").Width(200);
-                        columns.Command(command => { command.Edit().HtmlAttributes(new { @class = "k-primary" }); command.Destroy().HtmlAttributes(new { @class = "btn-danger" }); }).Title("Opciones");
+                        columns.Command(command => { 
+                                    command.Edit().HtmlAttributes(new { @class = "k-primary" }); 
+                                    command.Destroy().HtmlAttributes(new { @class = "btn-danger" });
+                                    command.Custom("Detalles").Click("verDetalle");
+                        }).Title("Opciones");
                     })
                     .Pageable()
                     .Sortable()
@@ -71,3 +108,8 @@
         </div>
     </div>
     </div>
+
+<div id="Detail">
+
+</div>
+

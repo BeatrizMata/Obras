@@ -137,7 +137,7 @@ namespace Obras.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public Usuarios IdUsuario { get; set; }
+        public Empresa IdEmpresa { get; set; }
         [MaxLength(200)]
         public string Colonia { get; set; }
         [MaxLength(6)]

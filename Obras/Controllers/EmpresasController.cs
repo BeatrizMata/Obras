@@ -36,18 +36,29 @@ namespace Obras.Controllers
             DataSourceResult result = Details.ToDataSourceResult(request, p => new Empresa
             {
                 Id = p.Id,
-                IdUsuario=p.IdUsuario,
+                IdUsuario = p.IdUsuario,
                 RegistroEdo = p.RegistroEdo,
                 RepresLegal = p.RepresLegal,
                 Tecnico = p.Tecnico,
                 RFC = p.RFC,
                 FechaRegistro = p.FechaRegistro,
-                Estatus=p.Estatus
-                
+                Estatus = p.Estatus
+
 
             });
             return Json(result, JsonRequestBehavior.AllowGet);
 
+        }
+        public ActionResult Detalles(int id) {
+
+            Domicilio dom = db.dbDomicilio.Where(m => m.IdEmpresa.Id == id).FirstOrDefault();
+            Contacto cont = db.dbContacto.Where(m => m.IdEmpresa.Id == id).FirstOrDefault();
+            EspecialidadEmpresa esp = db.dbEspecialidadEmpresa.Where(m => m.IdEmpresa.Id == id).FirstOrDefault();
+            ViewBag.domi = dom;
+            ViewBag.Cont = cont;
+            ViewBag.esp = esp;
+
+            return View(db.dbEmpresa.Find(id));
         }
     }
 }
